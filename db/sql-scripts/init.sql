@@ -14,8 +14,9 @@ CREATE TABLE tbl_user (
 CREATE TABLE parties_statistic (
   id INT AUTO_INCREMENT PRIMARY KEY,
   party_name VARCHAR(255),
-  votes_number TEXT
+  votes_number INT DEFAULT 0
 );
+
 
 INSERT INTO tbl_user (user_id, vote_entitlement, voted) VALUES 
 ('964501563', 'true', 'false'),

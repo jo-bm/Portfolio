@@ -86,6 +86,7 @@
   <div class="container">
     <h1>Admin Dashboard</h1>
     <a href="{{url_for('download_csv')}}" class="btn-download">Download Voter Data</a>
+    <a href="{{ url_for('download_parties_csv') }}" download="parties_statistics.csv" class="btn-download">Download Parties Statistics</a>
     <br><br>
     <button id="add-party-btn" class="btn-download">Add Party</button>
     <button id="delete-party-btn" class="btn-download">Delete Party</button>
