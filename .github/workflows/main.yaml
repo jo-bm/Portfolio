@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Start Docker Compose
-      run: docker Compose up -d
+      run: docker compose up -d
 
   End_To_End:
       runs-on: ubuntu-latest
