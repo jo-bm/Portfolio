@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feature/**
 
 jobs:
   CI:
@@ -17,6 +18,7 @@ jobs:
 
     - name: Run Tests
       run: |
+        
         bash ./app/e2e.sh
         
     - name: failure
@@ -25,7 +27,7 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
-        message="❌ CI for branch $GITHUB_REF_NAME failed 🚨😞
+        message="❌ CI for branch $GITHUB_REF_NAME failed 🚨💀
         Run number: $GITHUB_RUN_NUMBER"
         curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
 

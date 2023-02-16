@@ -13,13 +13,11 @@ execute_mysql_command('use testdb')
 
 
 def insert_data_from_csv_to_db():
-    # Connect to the database
     cnx = conn()
 
-    # Open the CSV file and read its contents
     with open('parties.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
-        next(csv_reader)  # Skip header row
+        next(csv_reader) 
         data_to_insert_parties = []
         data_to_insert_parties_statistic = []
         for row in csv_reader:
@@ -57,7 +55,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-# Connect to the MySQL database
     db = conn()
     # Create a cursor object to execute SQL queries
     cursor = db.cursor()
@@ -209,6 +206,8 @@ def download_csv():
         data = csvfile.read()
         response = Response(data, mimetype='text/csv', headers={'Content-disposition': 'attachment; filename=parties.csv'})
         return response
+    
+    
 @app.route('/download-parties-csv')
 def download_parties_csv():
     # create a database connection

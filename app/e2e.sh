@@ -23,7 +23,6 @@ if [ $vote -ne 200 ]; then
   exit 1
 fi
 
-
 # Test the login page
 login=$(curl -s -o /dev/null -w "%{http_code}" -d "username=admin&password=admin" -X POST http://127.0.0.1:5000/login)
 if [ $login -ne 200 ]; then
