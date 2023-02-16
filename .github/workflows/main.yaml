@@ -21,34 +21,29 @@ jobs:
         bash ./app/e2e.sh
       continue-on-error: true
 
-  notify-telegram:
-    name: TelegramNotification
-    runs-on: ubuntu-latest
-    needs: [CI]
-    steps:
         
-      - name: failure
-        if: failure()
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          message="❌ CI for branch $GITHUB_REF_NAME failed 🚨😞
-          Run number: $GITHUB_RUN_NUMBER"
-          curl -s \
-          --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
-          --data-urlencode "text=$message" \
-          "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+    - name: failure
+      if: failure()
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: |
+        message="❌ CI for branch $GITHUB_REF_NAME failed 🚨😞
+        Run number: $GITHUB_RUN_NUMBER"
+        curl -s \
+        --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+        --data-urlencode "text=$message" \
+        "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
 
-      - name: success
-        if: success()
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          message="✅ CI for branch $GITHUB_REF_NAME succeeded 🚀🤘
-          Run number: $GITHUB_RUN_NUMBER"
-          curl -s \
-          --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
-          --data-urlencode "text=$message" \
-          "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+    - name: success
+      if: success()
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: |
+        message="✅ CI for branch $GITHUB_REF_NAME succeeded 🚀🤘
+        Run number: $GITHUB_RUN_NUMBER"
+        curl -s \
+        --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+        --data-urlencode "text=$message" \
+        "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
