@@ -17,7 +17,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        bash ./app/e222e.sh
+        bash ./app/e2e.sh
 
   notify-telegram:
     name: TelegramNotification
@@ -26,7 +26,7 @@ jobs:
     steps:
         
       - name: failure
-        if: ${{ failure() }}
+        if: failure()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
