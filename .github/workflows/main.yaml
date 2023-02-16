@@ -9,5 +9,7 @@ jobs:
   list-files:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
-        run: ls
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: List Files
+      run: ls
