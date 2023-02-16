@@ -28,10 +28,7 @@ jobs:
       run: |
         message="❌ CI for branch $GITHUB_REF_NAME failed 🚨😞
         Run number: $GITHUB_RUN_NUMBER"
-        curl -s \
-        --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
-        --data-urlencode "text=$message" \
-        "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+        curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
 
     - name: success
       if: success()
@@ -41,7 +38,4 @@ jobs:
       run: |
         message="✅ CI for branch $GITHUB_REF_NAME succeeded 🚀🤘
         Run number: $GITHUB_RUN_NUMBER"
-        curl -s \
-        --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
-        --data-urlencode "text=$message" \
-        "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+        curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
