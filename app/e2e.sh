@@ -1,5 +1,7 @@
 #!/bin/bash
 
+for i in {1..20}; do home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000/); if [ $home -eq 200 ]; then break; fi; echo "Faild $i/20" && sleep 1; done
+
 # Test the home page
 home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000/)
 if [ $home -ne 200 ]; then
