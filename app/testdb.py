@@ -1,5 +1,35 @@
 #pip install mysql-connector-python 
-import mysql.connector
+import mysql.connector,csv
+
+def insert_data_from_csv_to_db():
+    cnx = conn()
+
+    with open('parties.csv') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        next(csv_reader) 
+        data_to_insert_parties = []
+        data_to_insert_parties_statistic = []
+        for row in csv_reader:
+            party_name = row[0]
+            platform = row[1]
+            data_to_insert_parties.append((party_name, platform))
+            data_to_insert_parties_statistic.append((party_name, 0))
+
+    # Insert the data into the parties table
+    cursor = cnx.cursor()
+    insert_query_parties = "INSERT INTO parties (party_name, platform) VALUES (%s, %s)"
+    cursor.executemany(insert_query_parties, data_to_insert_parties)
+    cnx.commit()
+
+    # Insert the data into the parties_statistic table
+    insert_query_parties_statistic = "INSERT INTO parties_statistic (party_name, votes_number) VALUES (%s, %s)"
+    cursor.executemany(insert_query_parties_statistic, data_to_insert_parties_statistic)
+    cnx.commit()
+
+    # Close the database connection
+    cursor.close()
+    cnx.close()
+
 
 # connect to the db
 def conn():

@@ -6,8 +6,9 @@ COPY . /app
 RUN pip install numpy && pip install pandas
 RUN pip install flask  
 RUN pip install mysql-connector-python 
+RUN pip install json_logging
 
-
+USER root
 EXPOSE 5000
 
 CMD ["python", "app.py"]
