@@ -1,7 +1,7 @@
 ,user_id,vote_entitlement,voted
 1,964501563,true,false
 2,177876653,true,false
-3,035686674,true,false
+3,035686674,true,true
 4,672477031,false,false
 5,413743345,true,false
 6,093175180,true,false
@@ -12,7 +12,7 @@
 11,798332409,false,false
 12,398759266,false,false
 13,601638695,true,false
-14,681278263,true,false
+14,681278263,true,true
 15,510684194,true,false
 16,979533981,false,false
 17,640309290,true,false

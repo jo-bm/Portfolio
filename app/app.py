@@ -12,13 +12,12 @@ execute_mysql_command('use testdb')
 
 
 
-
 def insert_data_from_csv_to_db():
     # Connect to the database
     cnx = conn()
 
     # Open the CSV file and read its contents
-    with open('/home/jack/Desktop/well/Portfolio/app/parties.csv') as csv_file:
+    with open('parties.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
         next(csv_reader)  # Skip header row
         data_to_insert = []
@@ -37,7 +36,15 @@ def insert_data_from_csv_to_db():
     cursor.close()
     cnx.close()
 
-#insert_data_from_csv_to_db()
+result = execute_mysql_command("SELECT COUNT(*) FROM parties")
+count = result[0][0]
+
+if count == 0:
+    print("The parties table is empty")
+    insert_data_from_csv_to_db()
+    print("data added to db")
+
+
 
 
 app = Flask(__name__)

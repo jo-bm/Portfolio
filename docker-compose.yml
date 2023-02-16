@@ -1,12 +1,16 @@
 version: '3'
 services:
-  # app:
-  #   container_name: app
-  #   build: ./app
-  #   ports:
-  #     - "5000:5000"
-  #   depends_on:
-  #     - db
+  app:
+    container_name: app
+    build: ./app
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+      
+    networks:
+      - dbappnet
   db:
     container_name: db
     build: ./db
@@ -18,5 +22,16 @@ services:
     volumes:
       - "./db/sql-scripts:/docker-entrypoint-initdb.d"
       - "dbdata:/var/lib/mysql"
+    networks:
+      - dbappnet
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
 volumes:
   dbdata:
+
+networks:
+  dbappnet:
