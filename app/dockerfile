@@ -1,0 +1,10 @@
+FROM python:3.8-alpine
+
+WORKDIR /app
+COPY ./app.py /app
+
+RUN pip install flask && pip install mysql-connector-python 
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]

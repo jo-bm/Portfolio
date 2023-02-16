@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Party Names</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap" rel="stylesheet">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+  
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+  
+    a {
+      color: #0f2e2c; /* Lightly orange */
+      text-decoration: none;
+    }
+  
+    /* New styles */
+    body {
+      background-color: white;
+      color: #0f2e2c; /* Lightly orange */
+      font-family: 'Heebo', sans-serif;
+      font-weight: 500;
+    }
+  
+    table {
+      background-color: #f2f2f2; /* Light gray */
+    }
+
+    button {
+        background-color: #4CAF50; /* Lightly orange */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        }
+
+    button:hover {
+    background-color: #3e8e41; /* Lighter orange */
+    }
+  
+    .logo {
+      font-size: 36px; /* increase font size */
+      text-align: center; /* center text within div */
+      margin: 0 auto; /* center div within parent container */
+      margin-bottom: 20px; /* add 20px of space beneath the div */
+    }
+  
+    td:hover {
+      background-color: #d8d8d8; /* Lightly orange */
+      color: white; /* Change text color to white */
+    }
+  </style>
+</head>
+<body>
+
+    <div class="logo">
+       נא בחר מפלגה אליה תרצה להצביע
+       <button type="button" onclick="location.href='/login'">Login for admins ONLY</button>
+    </div>
+
+
+
+
+<table>
+    {% for i in range(0, party_names|length, 5) %}
+        <tr>
+            {% for j in range(i, i+5) %}
+                {% if j < party_names|length %}
+                    <td data-party="party_{{j}}" id="party_{{j}}">
+                        <a href="#">{{ party_names[j] }}</a>
+                    </td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+<script>
+    var cells = document.querySelectorAll("td");
+    cells.forEach(function(cell) {
+        cell.addEventListener("click", function() {
+            var party = cell.getAttribute("data-party");
+            window.location.href = "/"+party;
+        });
+    });
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admins Page</title>
+  <style>
+    /* Add some classic and trendy styling here */
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 800px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+    .btn-download {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .form-container {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .form-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+    .close-btn {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close-btn:hover,
+    .close-btn:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .form input[type=text], .form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .form button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <a href="{{url_for('download_csv')}}" class="btn-download">Download Voter Data</a>
+    <br><br>
+    <button id="add-party-btn" class="btn-download">Add Party</button>
+    <button id="delete-party-btn" class="btn-download">Delete Party</button>
+    <input type="button" class="btn-download" onclick="window.location.href='/'" class="return-button" value="Return Home" />
+    <div id="add-party-form" class="form-container">
+      <div class="form-content">
+        <span class="close-btn" id="add-party-close-btn">&times;</span>
+        <form class="form" method="post" action="{{url_for('add_party')}}">
+          <label for="party-name">Party Name:</label>
+          <input type="text" id="party-name" name="party_name" required>
+          <label for="party-platform">Party Platform:</label>
+          <textarea id="party-platform" name="party_platform" required></textarea>
+          <button type="submit">Add Party</button>
+        </form>
+      </div>
+    </div>
+    <div id="delete-party-form" class="form-container">
+      <div class="form-content">
+        <span class="close-btn" id="delete-party-close-btn">&times;</span>
+        <form class="form" method="post" action="{{ url_for('delete_party') }}">
+          <label for="party-name">Party Name:</label>
+          <select id="party-name" name="party_name" required>
+            {% for party_name in party_names %}
+              <option value="{{ party_name }}">{{ party_name }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit">Delete Party</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var addPartyForm = document.getElementById('add-party-form');
+    var addPartyBtn = document.getElementById('add-party-btn');
+    var addPartyCloseBtn = document.getElementById('add-party-close-btn');
+
+    addPartyBtn.onclick = function() {
+      addPartyForm.style.display = 'block';
+    }
+
+    addPartyCloseBtn.onclick = function() {
+      addPartyForm.style.display = 'none';
+    }
+
+    var deletePartyForm = document.getElementById('delete-party-form');
+    var deletePartyBtn = document.getElementById('delete-party-btn');
+    var deletePartyCloseBtn = document.getElementById('delete-party-close-btn');
+
+    deletePartyBtn.onclick = function() {
+      deletePartyForm.style.display = 'block';
+    }
+
+    deletePartyCloseBtn.onclick = function() {
+      deletePartyForm.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+
+
+
