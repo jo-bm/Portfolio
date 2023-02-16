@@ -18,5 +18,6 @@ jobs:
     - name: Run Tests
 
       run: |
+        sleep 5
         docker ps -a
         bash ./app/e2e.sh
