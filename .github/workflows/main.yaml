@@ -28,12 +28,11 @@ jobs:
     steps:
         
       - name: failure
-        if: always()
+        if: failure()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          echo $CI
           message="❌ CI for branch $GITHUB_REF_NAME failed 🚨😞
           Run number: $GITHUB_RUN_NUMBER"
           curl -s \
@@ -42,12 +41,11 @@ jobs:
           "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
 
       - name: success
-        if: always()
+        if: success()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          echo $CI
           message="✅ CI for branch $GITHUB_REF_NAME succeeded 🚀🤘
           Run number: $GITHUB_RUN_NUMBER"
           curl -s \
