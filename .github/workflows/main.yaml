@@ -16,6 +16,16 @@ jobs:
       run: docker compose up -d
 
     - name: Run Tests
-
       run: |
         bash ./app/e2e.sh
+
+  notify-telegram:
+    name: TelegramNotification
+    if: success()
+    # || failure()
+    runs-on: ubuntu-latest
+    needs: [CI]
+    steps:
+      - name: success
+        run: |
+          echo success
