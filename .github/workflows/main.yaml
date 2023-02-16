@@ -19,4 +19,5 @@ jobs:
 
       run: |
         ls
-        bash /app/e2e.sh
+        ls ./app
+        bash ./app/e2e.sh
