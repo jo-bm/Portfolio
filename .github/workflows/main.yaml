@@ -17,7 +17,6 @@ jobs:
 
     - name: Run Tests
 
-      working-directory: /app
       run: |
         ls
-        bash e2e.sh
+        bash /app/e2e.sh
