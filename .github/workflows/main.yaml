@@ -18,7 +18,6 @@ jobs:
     - name: Run Tests
       run: |
         bash ./app/e2e.sh
-
         
     - name: failure
       if: failure()
