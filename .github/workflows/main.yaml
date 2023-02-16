@@ -24,12 +24,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: [CI]
     steps:
+        
       - name: failure
         if: ${{ failure() }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          echo failure
-          
+          curl -s \
+          --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+          --data-urlencode "text=failure" \
+          "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+
       - name: success
         if: ${{ success() }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          echo success
+          curl -s \
+          --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+          --data-urlencode "text=success" \
+          "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
