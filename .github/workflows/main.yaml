@@ -12,4 +12,18 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
     - name: List Files
-      run: ls
+      run: |
+        
+        for iteration in {1..30}; do
+          response=$(curl -s -o /dev/null -w "%{http_code}" "http://127.0.0.1:5000/")
+          if [ $response -eq 200 ]; then
+            echo "the app is up and running!"
+            exit 0
+          fi
+          echo "app is offline... try: $iteration/30"
+          sleep 1
+          
+        done
+
+        echo "Server did not start within 30 seconds"
+        exit 1
