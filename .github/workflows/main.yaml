@@ -18,6 +18,5 @@ jobs:
     - name: Run Tests
 
       run: |
-        ls
-        ls ./app
+        docker ps -a
         bash ./app/e2e.sh
