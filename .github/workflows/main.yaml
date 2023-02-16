@@ -31,7 +31,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          message="failure"
+          message="❌ CI for branch $GITHUB_REF_NAME failed 🚨😞
+          Run number: $GITHUB_RUN_NUMBER"
           curl -s \
           --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
           --data-urlencode "text=$message" \
@@ -44,7 +45,8 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           env
-          message="success"
+          message="✅ CI for branch $GITHUB_REF_NAME succeeded 🚀🤘
+          Run number: $GITHUB_RUN_NUMBER"
           curl -s \
           --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
           --data-urlencode "text=$message" \
