@@ -17,7 +17,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        bash ./app/e2e.sh
+        bash ./app/e222e.sh
 
   notify-telegram:
     name: TelegramNotification
@@ -44,7 +44,6 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          env
           message="✅ CI for branch $GITHUB_REF_NAME succeeded 🚀🤘
           Run number: $GITHUB_RUN_NUMBER"
           curl -s \
