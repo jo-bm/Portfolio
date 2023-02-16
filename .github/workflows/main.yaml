@@ -21,11 +21,15 @@ jobs:
 
   notify-telegram:
     name: TelegramNotification
-    if: success()
-    # || failure()
     runs-on: ubuntu-latest
     needs: [CI]
     steps:
+      - name: failure
+        if: ${{ failure() }}
+        run: |
+          echo failure
+          
       - name: success
+        if: ${{ success() }}
         run: |
           echo success
