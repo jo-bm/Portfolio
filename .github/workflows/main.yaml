@@ -18,7 +18,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        
+        docker ps -a
         bash ./app/e2e.sh
         
     - name: failure
