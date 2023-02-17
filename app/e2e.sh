@@ -1,49 +1,7 @@
 #!/bin/bash
 
 sleep 10
-home=$(curl -s -o /dev/null -w "%{http_code}" localhost/)
-if [ $home -ne 200 ]; then
-  echo "Error: local $home"
-
-fi
-ping http://127.0.0.1/
-
-home=$(curl -s -o /dev/null -w "%{http_code}" 127.0.0.1:80/)
-if [ $home -ne 200 ]; then
-  echo "Error: 127:80 $home"
-
-fi
-ping http://127.0.0.1:80
-
-home=$(curl -s -o /dev/null -w "%{http_code}" 0.0.0.0:80/)
-if [ $home -ne 200 ]; then
-  echo "Error: 0000:80 $home"
-
-fi
-ping http://0.0.0.0:80/
-
-
-home=$(curl -s -o /dev/null -w "%{http_code}" 0.0.0.0/)
-if [ $home -ne 200 ]; then
-  echo "Error: 0000 $home"
-
-fi
-ping http://0.0.0.0/
-
-home=$(curl -s -o /dev/null -w "%{http_code}" 127.0.0.1:5000/)
-if [ $home -ne 200 ]; then
-  echo "Error: home page returned HTTP status code $home"
-  exit 1
-fi
-
-ping http://127.0.0.1:5000
-
-
-
-
-
-
-
+curl localhost
 
 
 for i in {1..20}; do home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000/); if [ $home -eq 200 ]; then break; fi; echo "Curling Localhost Faild: $i/20" && sleep 1; done
