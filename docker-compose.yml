@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   app:
     container_name: app
@@ -8,9 +9,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      
+
     networks:
       - dbappnet
+
   db:
     container_name: db
     build: ./db
@@ -24,12 +26,25 @@ services:
       - "dbdata:/var/lib/mysql"
     networks:
       - dbappnet
-
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 10s
       retries: 3
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - "./proxy/conf:/etc/nginx/conf.d"
+      - "./app/static:/usr/share/nginx/html/static"
+    depends_on:
+      - app
+    networks:
+      - dbappnet
+
 volumes:
   dbdata:
 
