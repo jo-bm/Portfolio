@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sleep 10
 home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1/)
 if [ $home -ne 200 ]; then
   echo "Error: 127 $home"
