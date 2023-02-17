@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Start Docker Compose
       run: docker compose up -d
@@ -19,6 +19,7 @@ jobs:
     - name: Run Tests
       run: |
         docker ps -a
+        sleep 3
         curl localhost
         bash ./app/e2e.sh
         
