@@ -31,6 +31,28 @@ def insert_data_from_csv_to_db():
     cnx.close()
 
 
+def initdb():
+
+    # Connect to MySQL database
+    mydb = conn()
+    mycursor = mydb.cursor()
+
+    # Check if parties table exists
+    mycursor.execute("SHOW TABLES LIKE 'parties'")
+    result = mycursor.fetchone()
+
+    if not result:
+        # Run SQL statements to create tables and insert data
+        script_path = './init.sql'
+        with open(script_path, 'r') as f:
+            sql_statements = f.read()
+        mycursor.execute(sql_statements)
+        mydb.commit()
+
+    # Close database connection
+    mycursor.close()
+    mydb.close()
+
 # connect to the db
 def conn():
     return mysql.connector.connect(

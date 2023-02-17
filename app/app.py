@@ -14,7 +14,8 @@ app = Flask(__name__)
 logging.basicConfig(filename='applogs.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 
-
+#initdb()
+initdb()
 
 # Check if the parties table is empty
 result = execute_mysql_command("SELECT COUNT(*) FROM parties")
