@@ -1,5 +1,46 @@
 #!/bin/bash
 
+home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1/)
+if [ $home -ne 200 ]; then
+  echo "Error: 127 $home"
+
+fi
+
+home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:80/)
+if [ $home -ne 200 ]; then
+  echo "Error: 127:80 $home"
+
+fi
+
+home=$(curl -s -o /dev/null -w "%{http_code}" http://0.0.0.0:80/)
+if [ $home -ne 200 ]; then
+  echo "Error: 0000:80 $home"
+
+fi
+
+home=$(curl -s -o /dev/null -w "%{http_code}" http://0.0.0.0/)
+if [ $home -ne 200 ]; then
+  echo "Error: 0000 $home"
+
+fi
+
+
+home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000/)
+if [ $home -ne 200 ]; then
+  echo "Error: home page returned HTTP status code $home"
+  exit 1
+fi
+
+
+
+
+
+
+
+
+
+
+
 for i in {1..20}; do home=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000/); if [ $home -eq 200 ]; then break; fi; echo "Curling Localhost Faild: $i/20" && sleep 1; done
 
 # Test the home page
