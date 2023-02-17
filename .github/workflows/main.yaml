@@ -19,6 +19,7 @@ jobs:
     - name: Run Tests
       run: |
         docker ps -a
+        curl localhost
         bash ./app/e2e.sh
         
     - name: failure

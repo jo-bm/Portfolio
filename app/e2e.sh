@@ -4,6 +4,10 @@ sleep 10
 
 curl localhost
 
+
+
+
+
 for i in {1..20}; do home=$(curl -s -o /dev/null -w "%{http_code}" localhost); if [ $home -eq 200 ]; then break; fi; echo "Curling Localhost Faild: $i/20" && sleep 1; done
 
 # Test the home page

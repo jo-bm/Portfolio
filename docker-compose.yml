@@ -34,9 +34,10 @@ services:
 
   nginx:
     container_name: nginx
-    image: nginx
+    image: nginx:alpine-slim
     ports:
-      - "80:80"
+    - 80:80
+    
     volumes:
       - "./proxy/conf:/etc/nginx/conf.d"
       - "./app/static:/usr/share/nginx/html/static"
