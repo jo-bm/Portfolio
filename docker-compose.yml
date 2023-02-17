@@ -4,8 +4,8 @@ services:
   app:
     container_name: app
     build: ./app
-    ports:
-      - "5000:5000"
+    #ports:
+    #  - "5000:5000"
     depends_on:
       db:
         condition: service_healthy
@@ -19,8 +19,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: testdb
-    ports:
-      - "3306:3306"
+    #ports:
+    #  - "3306:3306"
     volumes:
       - "./db/sql-scripts:/docker-entrypoint-initdb.d"
       - "dbdata:/var/lib/mysql"
