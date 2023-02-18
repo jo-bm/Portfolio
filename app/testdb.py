@@ -53,6 +53,7 @@ def initdb():
     mycursor.close()
     mydb.close()
 
+
 # connect to the db
 def conn():
     return mysql.connector.connect(

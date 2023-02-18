@@ -48,24 +48,30 @@ def index():
     return render_template("index.html", party_names=party_names)
 
 
+
 @app.route('/<party_name>')
 def party(party_name):
+    # Connect to the database
     cnx = conn()
 
     # Retrieve the party name and platform from the parties table
     cursor = cnx.cursor()
     select_query = "SELECT party_name, platform FROM parties WHERE id = %s"
-    party_number = int(party_name.replace('party_', '')) + 1
-    cursor.execute(select_query, (party_number,))
+    cursor.execute(select_query, (int(party_name.replace('party_', ''))+1,))
     result = cursor.fetchone()
 
+    # Close the database connection
     cursor.close()
     cnx.close()
 
-    ids_list = ['177876653','035686674','672477031','413743345','093175180','468389937','087926721','298250838','328664701','798332409','398759266','601638695','681278263','510684194','979533981','640309290','432901288','855708863','301398160']
+    # Generate random IDs
+    ids_list = ['964501563','177876653','035686674','672477031','413743345','093175180','468389937','087926721','298250838','328664701','798332409','398759266','601638695','681278263','510684194','979533981','640309290','432901288','855708863','301398160']
     random_ids = [random.choices(ids_list, k=5)]
 
+    # Pass the retrieved data and the random IDs to the template
     return render_template("party.html", party_name=result[0], platform=result[1], random_ids=random_ids)
+
+
 
 @app.route('/vote', methods=['POST'])
 def vote():
@@ -229,5 +235,3 @@ def delete_party():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-
-
