@@ -6,9 +6,10 @@ COPY . /app
 RUN pip install numpy && pip install pandas
 RUN pip install flask  
 RUN pip install mysql-connector-python 
-RUN pip install json_logging
+RUN apt-get update && apt-get install -y netcat
+
 
 USER root
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD ["sh", "-c", "i=0; while [ $i -lt 30 ]; do if nc -z db 3306; then python3 app.py; exit 0; else echo 'Sleeping for 1 second'; sleep 1; i=$((i+1)); fi; done; echo 'Database connection failed after 30 tries'; exit 1"]
