@@ -57,7 +57,9 @@ def party(party_name):
     # Retrieve the party name and platform from the parties table
     cursor = cnx.cursor()
     select_query = "SELECT party_name, platform FROM parties WHERE id = %s"
-    cursor.execute(select_query, (int(party_name.replace('party_', ''))+1,))
+    some = int(party_name.split('_')[1]) + 1
+    
+    cursor.execute(select_query, (int(some),))
     result = cursor.fetchone()
 
     # Close the database connection
