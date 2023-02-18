@@ -34,7 +34,7 @@ metadata:
     app: db
   name: db
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: db
@@ -62,7 +62,7 @@ metadata:
     app: electify
   name: electify
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: electify

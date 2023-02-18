@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request,Response,url_for
 import pandas as pd
-import csv,random,logging
+import csv,random,logging,re
 from testdb import *
 
 
@@ -51,28 +51,33 @@ def index():
 
 @app.route('/<party_name>')
 def party(party_name):
-    # Connect to the database
-    cnx = conn()
 
-    # Retrieve the party name and platform from the parties table
-    cursor = cnx.cursor()
-    select_query = "SELECT party_name, platform FROM parties WHERE id = %s"
-    some = int(party_name.split('_')[1]) + 1
-    
-    cursor.execute(select_query, (int(some),))
-    result = cursor.fetchone()
+    if (re.match(r"party_\d+", party_name)) :
+        # Connect to the database
+        cnx = conn()
 
-    # Close the database connection
-    cursor.close()
-    cnx.close()
+        # Retrieve the party name and platform from the parties table
+        cursor = cnx.cursor()
+        select_query = "SELECT party_name, platform FROM parties WHERE id = %s"
+        some = int(party_name.split('_')[1]) + 1
+        
+        cursor.execute(select_query, (int(some),))
+        result = cursor.fetchone()
 
-    # Generate random IDs
-    ids_list = ['964501563','177876653','035686674','672477031','413743345','093175180','468389937','087926721','298250838','328664701','798332409','398759266','601638695','681278263','510684194','979533981','640309290','432901288','855708863','301398160']
-    random_ids = [random.choices(ids_list, k=5)]
+        # Close the database connection
+        cursor.close()
+        cnx.close()
 
-    # Pass the retrieved data and the random IDs to the template
-    return render_template("party.html", party_name=result[0], platform=result[1], random_ids=random_ids)
+        # Generate random IDs
+        ids_list = ['964501563','177876653','035686674','672477031','413743345','093175180','468389937','087926721','298250838','328664701','798332409','398759266','601638695','681278263','510684194','979533981','640309290','432901288','855708863','301398160']
+        random_ids = [random.choices(ids_list, k=5)]
 
+        # Pass the retrieved data and the random IDs to the template
+        return render_template("party.html", party_name=result[0], platform=result[1], random_ids=random_ids)
+
+    else:
+        #or party_name == '' or party_name == 'favicon.ico'
+        return render_template('404.html'), 404
 
 
 @app.route('/vote', methods=['POST'])
