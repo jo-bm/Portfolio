@@ -5,7 +5,7 @@ metadata:
   name: db
 spec:
   selector:
-    team: electify
+    app: db
   ports:
       - port: 3306
         targetPort: 3306
@@ -34,7 +34,7 @@ metadata:
     app: db
   name: db
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: db
@@ -62,7 +62,7 @@ metadata:
     app: electify
   name: electify
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: electify

@@ -15,7 +15,7 @@ logging.basicConfig(filename='applogs.log', level=logging.INFO, format='%(asctim
 
 
 #initdb()
-initdb()
+# initdb()
 
 # Check if the parties table is empty
 result = execute_mysql_command("SELECT COUNT(*) FROM parties")
