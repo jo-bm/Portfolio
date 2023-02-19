@@ -26,7 +26,6 @@ jobs:
     # git tag
     - name: Tagger
       run: |
-        env
 
         chmod +X ./app/tagger.sh 
         bash ./app/tagger.sh
