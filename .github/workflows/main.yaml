@@ -26,6 +26,7 @@ jobs:
 
     # git tag
     - name: tagger
+      if: github.ref == 'refs/heads/master'
       id: tagger
       env:          
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
@@ -57,6 +58,7 @@ jobs:
 
     # push tags
     - name: push tags
+      if: github.ref == 'refs/heads/master'
       run: |
         git push origin $TAG
 
