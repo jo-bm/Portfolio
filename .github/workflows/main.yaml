@@ -50,10 +50,10 @@ jobs:
       run: |
         docker images
         docker tag portfolio-app:latest jack3131/electify:$TAG
-        docker push jack3131/electify:latest
+        docker push jack3131/electify:$TAG
 
         docker tag portfolio-db:latest jack3131/mysql:$TAG
-        docker push jack3131/mysql:latest
+        docker push jack3131/mysql:$TAG
 
     # report
     - name: failure
