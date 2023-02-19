@@ -28,6 +28,7 @@ jobs:
 
       run: |
         echo "${{ steps.tagger.output.tag }}"
+        echo $tag
 
 
 
