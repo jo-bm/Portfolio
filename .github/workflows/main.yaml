@@ -50,7 +50,7 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud'
       run: |
-        gcloud secrets versions access "latest" --secret "${{ secret.GCLOUDKEY }}"
+        gcloud secrets versions access "latest" --secret "GCLOUDKEY"
 
 
 
