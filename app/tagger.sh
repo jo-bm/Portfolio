@@ -21,5 +21,7 @@ else
 fi
 
 NEW_TAG="$MAJOR.$MINOR.$PATCH"
+git tag $NEW_TAG
 echo $NEW_TAG
-#git push origin $NEW_TAG
+
+
