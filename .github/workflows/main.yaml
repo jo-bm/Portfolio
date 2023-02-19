@@ -55,7 +55,6 @@ jobs:
         docker tag portfolio-db:latest jack3131/mysql:$TAG
         docker push jack3131/mysql:latest
 
-
     # report
     - name: failure
       if: failure()
