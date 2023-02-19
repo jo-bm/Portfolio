@@ -25,14 +25,16 @@ jobs:
     
     # git tag
     - name: Tagger
+      id: tagger
       run: |
 
         bash ./app/tagger.sh
         
 
     - name: test
-      run: |
-        echo $UPDATED_TAG
+      env: 
+        NEW_TAG: ${{ steps.tagger.output.tagger.$NEW_TAG }}
+      run: echo $NEW_TAG
         
     # login to dockerhub    
     - name: Login to Docker Hub
