@@ -23,5 +23,5 @@ fi
 NEW_TAG="$MAJOR.$MINOR.$PATCH"
 echo $NEW_TAG
 git tag "$NEW_TAG"
-echo NEW_TAG=$NEW_TAG >> $GITHUB_OUTPUT
+echo "tag=${NEW_TAG}" >> $GITHUB_OUTPUT 
 #git push origin $NEW_TAG

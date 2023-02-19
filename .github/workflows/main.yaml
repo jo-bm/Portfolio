@@ -33,11 +33,13 @@ jobs:
 
     - name: test
       env: 
-        NEW_TAG: ${{ steps.tagger.output.NEW_TAG }}
+        NEW_TAG: ${{ steps.tagger.output.tag }}
       run: |
         echo $NEW_TAG
         echo ~~~~~~~~~
-        echo ${{env.NEW_TAG}}
+        echo ${{ env.NEW_TAG }}
+        echo ~~~~~~~~~
+        echo ${{ steps.tagger.output.tag }}
 
         
     # login to dockerhub    
