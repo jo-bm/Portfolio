@@ -37,7 +37,7 @@ jobs:
       run: |
         echo ${NEW_TAG}
         echo ~~~~~~~~~
-        echo ${env.NEW_TAG}
+        echo ${{env.NEW_TAG}}
 
         
     # login to dockerhub    
