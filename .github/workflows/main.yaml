@@ -14,14 +14,6 @@ jobs:
     # checkout
     - name: Checkout Repository
       uses: actions/checkout@v3
-
-    # docker compose up
-    - name: Start Docker Compose
-      run: docker compose up -d
-
-    # end to end testing
-    - name: Run Tests
-      run: bash ./app/e2e.sh
     
     # git tag
     - name: tagger
@@ -29,6 +21,7 @@ jobs:
       run: |
 
         bash ./app/tagger.sh
+        echo "tag=hello" >> $GITHUB_OUTPUT 
         
 
     - name: test
@@ -40,6 +33,18 @@ jobs:
         echo ${{ env.NEW_TAG }}
         echo ~~~~~~~~~
         echo ${{ steps.tagger.output.tag }}
+
+
+
+        
+    # docker compose up
+    - name: Start Docker Compose
+      run: docker compose up -d
+
+    # end to end testing
+    - name: Run Tests
+      run: bash ./app/e2e.sh
+
 
         
     # login to dockerhub    
