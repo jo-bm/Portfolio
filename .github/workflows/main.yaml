@@ -89,4 +89,3 @@ jobs:
          <b>Run number:</b> $GITHUB_RUN_NUMBER"
 
         curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" --data "parse_mode=HTML" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
-
