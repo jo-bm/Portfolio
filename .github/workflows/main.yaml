@@ -21,7 +21,7 @@ jobs:
       run: |
 
         bash ./app/tagger.sh
-        echo "tag=hello" >> $GITHUB_OUTPUT 
+        echo "tag='hello'" >> $GITHUB_OUTPUT 
         
 
     - name: test
