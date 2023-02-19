@@ -2,6 +2,7 @@ from flask import Flask, render_template,request,Response,url_for
 import pandas as pd
 import csv,random,logging,re
 from testdb import *
+from werkzeug.exceptions import HTTPException
 
 
 conn()
@@ -237,6 +238,13 @@ def delete_party():
 
     return 'Party deleted successfully'
 
+@app.errorhandler(Exception)
+def handle_exception(error):
+    # pass through HTTP errors
+    if isinstance(error, HTTPException):
+        return error
+    # now you're handling non-HTTP exceptions only
+    return render_template("404.html", error=error)
 
 
 if __name__ == '__main__':
