@@ -18,6 +18,8 @@ jobs:
     # git tag
     - name: tagger
       id: tagger
+      env:          
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       run: |
 
         tag=$(bash ./app/tagger.sh)
