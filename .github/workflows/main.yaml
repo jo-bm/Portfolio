@@ -10,16 +10,31 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
+
+    # checkout
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    # docker compose up
     - name: Start Docker Compose
       run: docker compose up -d
 
+    # end to end testing
     - name: Run Tests
+      run: bash ./app/e2e.sh
+    
+    # git tag
+    - name: Tagger
+      run: bash ./app/tagger.sh
+
+    - name: test
       run: |
-        bash ./app/e2e.sh
-        
+        echo $GITHUB_OUTPUT
+        echo $GITHUB_RUN_ID
+        echo $GITHUB_RUN_NUMBER
+        echo $GITHUB_ACTION
+
+    # login to dockerhub    
     - name: Login to Docker Hub
       if: github.ref == 'refs/heads/master'
       uses: docker/login-action@v2
@@ -27,8 +42,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-
+    # publish to dockerhub    
     - name: publish to Docker Hub
+      if: github.ref == 'refs/heads/master'
       run: |
         docker images
         docker tag portfolio-app:latest jack3131/electify:latest
@@ -37,6 +53,8 @@ jobs:
         docker tag portfolio-db:latest jack3131/mysql:latest
         docker push jack3131/mysql:latest
 
+
+    # report
     - name: failure
       if: failure()
       env:
