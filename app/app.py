@@ -53,7 +53,7 @@ def index():
 def party(party_name):
 
     if (re.match(r"party_\d+", party_name)) :
-        # Connect to the database
+        
         cnx = conn()
 
         # Retrieve the party name and platform from the parties table
@@ -64,7 +64,7 @@ def party(party_name):
         cursor.execute(select_query, (int(some),))
         result = cursor.fetchone()
 
-        # Close the database connection
+        
         cursor.close()
         cnx.close()
 
@@ -76,7 +76,7 @@ def party(party_name):
         return render_template("party.html", party_name=result[0], platform=result[1], random_ids=random_ids)
 
     else:
-        #or party_name == '' or party_name == 'favicon.ico'
+        logging.info(f"404 error: Page not found: {party_name}") 
         return render_template('404.html'), 404
 
 
@@ -93,10 +93,13 @@ def vote():
     result = cursor.fetchone()
 
     if not result:
+        logging.info("User not found")
         response = 'User not found'
     elif result[0] != 'true':
+        logging.info(f"User {user_id} is not eligible to vote")
         response = 'User not eligible to vote'
     elif result[1] == 'true':
+        logging.info(f"User {user_id} has already voted")
         response = 'User has already voted'
     else:
         # Update the 'voted' column to indicate that the user has voted
@@ -117,9 +120,10 @@ def vote():
             vote_count = int(result[0]) + 1
             query = "UPDATE parties_statistic SET votes_number = %s WHERE party_name = %s"
             cursor.execute(query, (str(vote_count), party_name))
-
+        
         cnx.commit()
         response = 'true'
+        logging.info(f"User {user_id} voted for {party_name}")  
 
     cursor.close()
     cnx.close()
@@ -144,7 +148,7 @@ def login():
 
             cursor.close()
             db.close()
-
+            logging.info("Admin logged in") 
             return render_template('adminspage.html', error=error, party_names=party_names)
     return render_template('login.html', error=error)
 
@@ -173,6 +177,7 @@ def download_csv():
     with open('static/parties.csv', 'r') as csvfile:
         data = csvfile.read()
         response = Response(data, mimetype='text/csv', headers={'Content-disposition': 'attachment; filename=parties.csv'})
+        logging.info("Users CSV downloaded") 
         return response
     
 
@@ -202,6 +207,7 @@ def download_parties_csv():
     with open('static/parties.csv', 'r') as csvfile:
         data = csvfile.read()
         response = Response(data, mimetype='text/csv', headers={'Content-disposition': 'attachment; filename=parties.csv'})
+        logging.info("partiesCSV downloaded") 
         return response
 
 @app.route('/add-party', methods=['POST'])
@@ -217,6 +223,7 @@ def add_party():
 
     cursor.close()
     db.close()
+    logging.info(f"Inserted new party into parties table: {party_name}, {party_platform}")
 
     return 'Party added successfully'
 
@@ -236,6 +243,7 @@ def delete_party():
     cursor.close()
     db.close()
 
+    logging.info(f"Deleted party from parties table: {party_name}")
     return 'Party deleted successfully'
 
 @app.errorhandler(Exception)
@@ -243,6 +251,7 @@ def handle_exception(error):
     # pass through HTTP errors
     if isinstance(error, HTTPException):
         return error
+    logging.critical("HTTP error has occurred in: %s", error)
     # now you're handling non-HTTP exceptions only
     return render_template("404.html", error=error)
 
