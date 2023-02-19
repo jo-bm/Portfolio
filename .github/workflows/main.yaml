@@ -64,6 +64,8 @@ jobs:
       run: |
         message="❌ CI for branch $GITHUB_REF_NAME failed 🚨💀
         Tag: $TAG
+        Link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        https://github.com/jo-bm/Portfolio/commit/$GITHUB_SHA/checks
         Run number: $GITHUB_RUN_NUMBER"
         curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
 
@@ -75,5 +77,7 @@ jobs:
       run: |
         message="✅ CI for branch: $GITHUB_REF_NAME succeeded 🚀🤘
         Tag: $TAG
+        Link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        https://github.com/jo-bm/Portfolio/commit/$GITHUB_SHA/checks
         Run number: $GITHUB_RUN_NUMBER"
         curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
