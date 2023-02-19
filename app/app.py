@@ -4,7 +4,6 @@ import csv,random,logging,re
 from testdb import *
 
 
-
 conn()
 execute_mysql_command('use testdb')
 

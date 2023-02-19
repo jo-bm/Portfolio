@@ -33,6 +33,25 @@ jobs:
         docker images
         docker tag portfolio-app:latest jack3131/electify:latest
         docker push jack3131/electify:latest
+### GCR
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+        service_account: '538570176507-compute@developer.gserviceaccount.com'
+
+    # Install gcloud, `setup-gcloud` automatically picks up authentication from `auth`.
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
+
+    # Now you can run gcloud commands authenticated as the impersonated service account.
+    - id: 'gcloud'
+      name: 'gcloud'
+      run: |-
+        gcloud secrets versions access "latest" --secret "${{ secret.GCLOUDKEY }}"
+
 
 
     - name: failure
