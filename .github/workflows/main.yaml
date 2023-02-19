@@ -26,9 +26,7 @@ jobs:
     # git tag
     - name: Tagger
       run: |
-        echo $GITHUB_RUN_ID
-        echo $GITHUB_RUN_NUMBER
-        echo $GITHUB_ACTION
+        env
 
         chmod +X ./app/tagger.sh 
         bash ./app/tagger.sh

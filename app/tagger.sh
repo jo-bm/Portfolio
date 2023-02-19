@@ -19,6 +19,7 @@ else
   PATCH=$((PATCH+1))
 fi
 NEW_TAG="$MAJOR.$MINOR.$PATCH"
+echo $NEW_TAG
 git tag "$NEW_TAG"
-echo $NEW_TAG >> $GITHUB_OUTPUT
+#echo $NEW_TAG >> $GITHUB_OUTPUT
 #git push origin $NEW_TAG
