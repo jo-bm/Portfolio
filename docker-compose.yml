@@ -22,7 +22,7 @@ services:
     #ports:
     #  - "3306:3306"
     volumes:
-      - "./db/sql-scripts:/docker-entrypoint-initdb.d"
+      # - "./db/sql-scripts:/docker-entrypoint-initdb.d"
       - "dbdata:/var/lib/mysql"
     networks:
       - dbappnet
