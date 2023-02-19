@@ -20,15 +20,16 @@ jobs:
       id: tagger
       run: |
 
-        bash ./app/tagger.sh
-        echo "tag=$(echo 'hello')" >> $GITHUB_OUTPUT 
+        tag=$(bash ./app/tagger.sh)
+        export TAG=$tag
+        echo "::set-env name=TAG::$TAG"
+      
         
 
     - name: test
 
       run: |
-        echo "${{ steps.tagger.output.tag }}"
-        echo $tag
+        echo $TAG
 
 
 
