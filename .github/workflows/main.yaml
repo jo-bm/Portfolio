@@ -55,6 +55,11 @@ jobs:
         docker tag portfolio-db:latest jack3131/mysql:$TAG
         docker push jack3131/mysql:$TAG
 
+    # push tags
+    - name: push tags
+      run: |
+        git push origin $TAG
+
     # report
     - name: failure
       if: failure()
@@ -64,7 +69,7 @@ jobs:
       run: |
         message="<b>❌ CI for branch:</b> $GITHUB_REF_NAME failed 🚨💀
          <b>Tag:</b> $TAG
-         <b>Link:</b> <a href='${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'>${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</a>
+         <b>Link:</b> <a href='${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'>Link</a>
          <b>Run number:</b> $GITHUB_RUN_NUMBER"
 
         curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" --data "parse_mode=HTML" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
@@ -79,7 +84,7 @@ jobs:
       run: |
         message="<b>✅ CI for branch:</b> $GITHUB_REF_NAME succeeded 🚀🤘
          <b>Tag:</b> $TAG
-         <b>Link:</b> <a href='${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'>${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</a>
+         <b>Link:</b> <a href='${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'>Link</a>
          <b>Run number:</b> $GITHUB_RUN_NUMBER"
 
         curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" --data "parse_mode=HTML" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
