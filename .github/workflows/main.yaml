@@ -25,15 +25,18 @@ jobs:
     
     # git tag
     - name: Tagger
-      run: bash ./app/tagger.sh
-
-    - name: test
       run: |
-        echo $GITHUB_OUTPUT
         echo $GITHUB_RUN_ID
         echo $GITHUB_RUN_NUMBER
         echo $GITHUB_ACTION
 
+        chmod +X ./app/tagger.sh 
+        bash ./app/tagger.sh
+
+    - name: test
+      run: |
+        echo $GITHUB_OUTPUT
+        
     # login to dockerhub    
     - name: Login to Docker Hub
       if: github.ref == 'refs/heads/master'
