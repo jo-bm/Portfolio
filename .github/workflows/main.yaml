@@ -24,7 +24,7 @@ jobs:
       run: bash ./app/e2e.sh
     
     # git tag
-    - name: Tagger
+    - name: tagger
       id: tagger
       run: |
 
