@@ -49,7 +49,7 @@ jobs:
     # Now you can run gcloud commands authenticated as the impersonated service account.
     - id: 'gcloud'
       name: 'gcloud'
-      run: |-
+      run: |
         gcloud secrets versions access "latest" --secret "${{ secret.GCLOUDKEY }}"
 
 
