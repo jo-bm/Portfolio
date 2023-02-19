@@ -52,8 +52,9 @@ jobs:
         NEW_TAG="$MAJOR.$MINOR.$PATCH"
         echo $NEW_TAG
         git tag "$NEW_TAG"
+        #echo $NEW_TAG >> $GITHUB_OUTPUT
+        #git push origin $NEW_TAG
 
-        
     - name: test
       run: |
         echo $GITHUB_OUTPUT
