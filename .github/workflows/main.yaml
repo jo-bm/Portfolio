@@ -62,12 +62,14 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
-        message="❌ CI for branch $GITHUB_REF_NAME failed 🚨💀
-        Tag: $TAG
-        Link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        https://github.com/jo-bm/Portfolio/commit/$GITHUB_SHA/checks
-        Run number: $GITHUB_RUN_NUMBER"
-        curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+        message="<b>❌ CI for branch:</b> $GITHUB_REF_NAME failed 🚨💀
+         <b>Tag:</b> $TAG
+         <b>Link:</b> <a href='${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'>${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</a>
+         <b>Run number:</b> $GITHUB_RUN_NUMBER"
+
+        curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" --data "parse_mode=HTML" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+
+
 
     - name: success
       if: success()
@@ -75,9 +77,10 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
-        message="✅ CI for branch: $GITHUB_REF_NAME succeeded 🚀🤘
-        Tag: $TAG
-        Link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        https://github.com/jo-bm/Portfolio/commit/$GITHUB_SHA/checks
-        Run number: $GITHUB_RUN_NUMBER"
-        curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+        message="<b>✅ CI for branch:</b> $GITHUB_REF_NAME succeeded 🚀🤘
+         <b>Tag:</b> $TAG
+         <b>Link:</b> <a href='${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'>${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</a>
+         <b>Run number:</b> $GITHUB_RUN_NUMBER"
+
+        curl -s --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$message" --data "parse_mode=HTML" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
+
