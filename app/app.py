@@ -13,10 +13,6 @@ app = Flask(__name__)
 # Configure logging
 logging.basicConfig(filename='applogs.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
-
-#initdb()
-# initdb()
-
 # Check if the parties table is empty
 result = execute_mysql_command("SELECT COUNT(*) FROM parties")
 count = result[0][0]
@@ -27,10 +23,6 @@ if count == 0:
     print("Data added to db")
 
 
-
-
-# Log a message
-#logging.info('This is an example log message.')
 
 @app.route('/')
 def index():
