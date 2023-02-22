@@ -46,7 +46,7 @@ This ensures that developers are always up to date with the latest changes and c
 
 
 
-## Tools i used in this project
+## Tools iv'e used in this project
 
 <table>
   <tr>
