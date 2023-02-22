@@ -34,4 +34,9 @@ These YAML files contain the deployment configurations for the Kubernetes archit
 Meanwhile, in the GKE cluster, an instance of ArgoCD is listening to the GitLab repository, waiting patiently for changes. 
 When a change is made to the YAML files, Argo deploys the updated configurations to the Kubernetes cluster automatically, ensuring that the application is always up to date and running.
 
-This architecture ensures that Electify is always available, scalable, and secure, providing a seamless experience for users and administrators alike.
+The last step in the CI/CD pipeline is the reporting phase,
+which is designed to provide developers with real-time feedback on the status of the pipeline. 
+The pipeline sends a Telegram push that includes detailed information on the completion status of the pipeline, 
+such as whether the tests have passed or failed, whether a new version has been deployed, link to the fully ci/cd reports,
+and any other relevant information that might be useful to the developers. 
+This ensures that developers are always up to date with the latest changes and can take appropriate action if necessary.
