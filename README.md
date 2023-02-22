@@ -20,7 +20,7 @@ My Flask App is designed to be user-friendly, secure, scalable, and includes sev
 ## CI/CD Architecture
 
 
-![screenshot](https://i.imgur.com/ibjpAxR.jpg)
+![screenshot](https://i.imgur.com/BeWDEYb.jpg)
 
 When a developer pushes changes to the GitHub repository, a CI pipeline is triggered automatically.
 If the changes are made to the master branch, the CI pipeline sets up the three-tier application environment,
