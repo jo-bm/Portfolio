@@ -61,6 +61,16 @@ jobs:
       run: |
         git push origin $TAG
 
+
+    # Deploy (trig argo)
+    - name: Deploy
+      run: |
+        mkdir lab && cd lab
+        git clone https://jack3131:Lab654654@gitlab.com/foo105/portfolio.git
+        cd portfolio/electify/templates
+        ls
+
+
     # report
     - name: failure
       if: failure()
