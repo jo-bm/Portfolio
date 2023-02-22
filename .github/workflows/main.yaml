@@ -68,8 +68,12 @@ jobs:
         mkdir lab && cd lab
         git clone https://jack3131:Lab654654@gitlab.com/foo105/portfolio.git
         cd portfolio/electify/templates
-        ls
+        TTAG="jack3131\/mysql:$TAG"
+        sed -i "s/jack3131\/mysql:[0-9]\+\.[0-9]\+\.[0-9]\+/$TTAG/g" statefullset-db.yaml
+        sed -i "s/jack3131\/electify:[0-9]\+\.[0-9]\+\.[0-9]\+/$TTAG/g" app-deploy.yaml
 
+        cat statefullset-db.yaml | grep -i jack
+        cat app-deploy.yaml | grep -i jack
 
     # report
     - name: failure
