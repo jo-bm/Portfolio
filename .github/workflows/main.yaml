@@ -48,7 +48,6 @@ jobs:
     - name: publish to Docker Hub
       if: github.ref == 'refs/heads/master'
       run: |
-        docker images
         docker tag portfolio-app:latest jack3131/electify:$TAG
         docker push jack3131/electify:$TAG
 
@@ -79,7 +78,7 @@ jobs:
         git config --global user.email "you@example.com"
         git config --global user.name "Github Action"
         git commit -am "$TAG"
-        git push https://jack3131:Lab654654@gitlab.com/foo105/portfolio.git master
+        git push https://${{ secrets.LABUSER }}:${{ secrets.LABPASS }}/foo105/portfolio.git master
 
     # report
     - name: failure
