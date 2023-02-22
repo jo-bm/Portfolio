@@ -50,17 +50,17 @@ This ensures that developers are always up to date with the latest changes and c
 
 <table>
   <tr>
-    <td align="center"><a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" width="75px;" height="75px;" alt="Git" /><br /><b>Git</b></a></td>
-    <td align="center"><a href="https://kubernetes.io/"><img src="https://img.icons8.com/color/48/000000/kubernetes.png" width="75px;" height="75px;" alt="Kubernetes"/><br /><b>Kubernetes</b></a></td>
-    <td align="center"><a href="https://www.python.org/"><img src="https://icons8.com/icon/13441/python" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
-    <td align="center"><a href="https://flask.palletsprojects.com/"><img src="https://img.icons8.com/ios-filled/50/000000/flask.png" width="75px;" height="75px;" alt="Flask"/><br /><b>Flask</b></a></td>
-    <td align="center"><a href="https://www.gnu.org/software/bash/"><img src="https://img.icons8.com/ios-filled/50/000000/console.png" width="75px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
+    <td align="center"><a href="https://git-scm.com/"><img src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_git-512.png" width="75px;" height="75px;" alt="Git" /><br /><b>Git</b></a></td>
+    <td align="center"><a href="https://kubernetes.io/"><img src="https://cdn2.iconfinder.com/data/icons/mixd/512/16_kubernetes-512.png" width="75px;" height="75px;" alt="Kubernetes"/><br /><b>Kubernetes</b></a></td>
+    <td align="center"><a href="https://www.python.org/"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
+    <td align="center"><a href="https://flask.palletsprojects.com/"><img src="https://e7.pngegg.com/pngimages/509/951/png-clipart-flask-by-example-web-framework-python-bottle-bottle-text-logo-thumbnail.png" width="75px;" height="75px;" alt="Flask"/><br /><b>Flask</b></a></td>
+    <td align="center"><a href="https://www.gnu.org/software/bash/"><img src="https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_linux-128.png" width="75px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://cloud.google.com/"><img src="https://img.icons8.com/color/48/000000/google-cloud-platform.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
-    <td align="center"><a href="https://www.mysql.com/"><img src="https://img.icons8.com/ios-filled/50/000000/mysql.png" width="75px;" height="75px;" alt="MySQL"/><br /><b>MySQL</b></a></td>
-    <td align="center"><a href="https://github.com/"><img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" width="75px;" height="75px;" alt="GitHub"/><br /><b>GitHub</b></a></td>
-    <td align="center"><a href="https://about.gitlab.com/"><img src="https://img.icons8.com/ios-glyphs/30/000000/gilhub.png" width="75px;" height="75px;" alt="GitLab"/><br /><b>GitLab</b></a></td>
-    <td align="center"><a href="https://argoproj.github.io/argo-cd/"><img src="https://www.argoproj.io/img/argo-cd.png" width="80px;" height="80px;" alt="ArgoCD"/><br /><b>ArgoCD</b></a></td>
+    <td align="center"><a href="https://cloud.google.com/"><img src="https://w7.pngwing.com/pngs/414/649/png-transparent-google-cloud-platform-cloud-computing-google-compute-engine-google-storage-google-angle-text-cloud.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
+    <td align="center"><a href="https://www.mysql.com/"><img src="https://cdn4.iconfinder.com/data/icons/logos-3/181/MySQL-512.png" width="75px;" height="75px;" alt="MySQL"/><br /><b>MySQL</b></a></td>
+    <td align="center"><a href="https://github.com/"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" width="75px;" height="75px;" alt="GitHub"/><br /><b>GitHub</b></a></td>
+    <td align="center"><a href="https://about.gitlab.com/"><img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/144_Gitlab_logo_logos-512.png" width="75px;" height="75px;" alt="GitLab"/><br /><b>GitLab</b></a></td>
+    <td align="center"><a href="https://argoproj.github.io/argo-cd/"><img src="https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png" width="80px;" height="80px;" alt="ArgoCD"/><br /><b>ArgoCD</b></a></td>
   </tr>
 </table>
