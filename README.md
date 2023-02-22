@@ -63,4 +63,9 @@ This ensures that developers are always up to date with the latest changes and c
     <td align="center"><a href="https://about.gitlab.com/"><img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/144_Gitlab_logo_logos-512.png" width="75px;" height="75px;" alt="GitLab"/><br /><b>GitLab</b></a></td>
     <td align="center"><a href="https://argoproj.github.io/argo-cd/"><img src="https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png" width="80px;" height="80px;" alt="ArgoCD"/><br /><b>ArgoCD</b></a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://nginx.org/"><img src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/nginx-512.png" width="75px;" height="75px;" alt="Nginx"/><br /><b>Nginx</b></a></td>
+    <td align="center"><a href="https://helm.sh/"><img src="https://helm.sh/img/helm.svg" width="75px;" height="75px;" alt="Helm"/><br /><b>Helm</b></a></td>
+  </tr>
+
 </table>
