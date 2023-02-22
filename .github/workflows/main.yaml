@@ -74,7 +74,7 @@ jobs:
 
         cat statefullset-db.yaml | grep -i jack
         cat app-deploy.yaml | grep -i jack
-        git commit -am "$TAG"
+        git commit -am "pushed from ci"
         git push https://jack3131:Lab654654@gitlab.com/foo105/portfolio.git master
 
     # report
