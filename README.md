@@ -57,7 +57,7 @@ This ensures that developers are always up to date with the latest changes and c
     <td align="center"><a href="https://www.gnu.org/software/bash/"><img src="https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_linux-128.png" width="75px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://cloud.google.com/"><img src="https://w7.pngwing.com/pngs/414/649/png-transparent-google-cloud-platform-cloud-computing-google-compute-engine-google-storage-google-angle-text-cloud.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
+    <td align="center"><a href="https://cloud.google.com/"><img src="https://static-00.iconduck.com/assets.00/google-cloud-platform-icon-512x455-f8ws1zg7.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
     <td align="center"><a href="https://www.mysql.com/"><img src="https://cdn4.iconfinder.com/data/icons/logos-3/181/MySQL-512.png" width="75px;" height="75px;" alt="MySQL"/><br /><b>MySQL</b></a></td>
     <td align="center"><a href="https://github.com/"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" width="75px;" height="75px;" alt="GitHub"/><br /><b>GitHub</b></a></td>
     <td align="center"><a href="https://about.gitlab.com/"><img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/144_Gitlab_logo_logos-512.png" width="75px;" height="75px;" alt="GitLab"/><br /><b>GitLab</b></a></td>
