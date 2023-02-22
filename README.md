@@ -1,6 +1,7 @@
-# This repo is WIP
 
+# Electify app
 
+## the app
 Electify is a web application built using the Flask web framework in Python. The app is designed to allow users to view information about political parties and vote for their preferred party.
 
 The app includes several pages, such as a home page that displays a list of political parties, a party page that provides detailed information about a selected party, and a login page that allows an administrator to access an admin page.
@@ -9,7 +10,28 @@ The home page displays a list of political parties that are stored in a MySQL da
 
 The app also includes an admin page that is accessible through the login page. The admin page allows an administrator to add or delete political parties, as well as download a CSV file containing information about the users.
 
-My Flask App is designed to be user-friendly, secure, and scalable, and includes several custom design elements and animations to enhance the user experience. It is built using HTML, CSS, and JavaScript for the front-end, and Python and MySQL for the back-end.``` 
+My Flask App is designed to be user-friendly, secure, scalable, and includes several custom design elements and animations to enhance the user experience. It is built using HTML, CSS, and JavaScript for the front-end, and Python and MySQL for the back-end.
+
+![screenshot](https://i.imgur.com/IjFQtf9.jpg)
+
+## Architecture
 
 
+![screenshot](https://i.imgur.com/ibjpAxR.jpg)
 
+When a developer pushes changes to the GitHub repository, a CI pipeline is triggered automatically.
+If the changes are made to the master branch, the CI pipeline sets up the three-tier application environment,
+including Flask, MySQL, and Nginx, in a containerized environment with network isolation.
+Then, it runs full end-to-end tests on the application to ensure that it is working as expected.
+
+If the changes are made to a feature branch, the CI pipeline skips the folowing steps and goes directly to the report step.
+If the end-to-end tests are successful, the CI pipeline automatically calculates a semantic versioning tag and pushes it to GitHub.
+As well publish the images to dockerhub
+
+In the CD phase, the CI pipeline edits the tag in the YAML files of a private other GitLab repository.
+These YAML files contain the deployment configurations for the Kubernetes architecture, such as deployment, stateful set, services, volumes, and other components.
+
+Meanwhile, in the GKE cluster, an instance of ArgoCD is listening to the GitLab repository, waiting patiently for changes. 
+When a change is made to the YAML files, Argo deploys the updated configurations to the Kubernetes cluster automatically, ensuring that the application is always up to date and running.
+
+This architecture ensures that Electify is always available, scalable, and secure, providing a seamless experience for users and administrators alike.

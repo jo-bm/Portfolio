@@ -70,6 +70,7 @@ jobs:
         cd portfolio/electify/templates
         TTAG="jack3131\/mysql:$TAG"
         sed -i "s/jack3131\/mysql:[0-9]\+\.[0-9]\+\.[0-9]\+/$TTAG/g" statefullset-db.yaml
+        TTAG="jack3131\/electify:$TAG"
         sed -i "s/jack3131\/electify:[0-9]\+\.[0-9]\+\.[0-9]\+/$TTAG/g" app-deploy.yaml
 
         cat statefullset-db.yaml | grep -i jack
