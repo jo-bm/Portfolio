@@ -61,14 +61,15 @@ jobs:
         git push origin $TAG
 
 
-    - name: GitLab login
+    - name: Github login
       if: github.ref == 'refs/heads/master'
       uses: actions/checkout@v3
       with: 
         repository: Jo-Bm/PortfolioGOC
         ref: master
         token: ${{ secret.GHTOKEN }}
-      
+    
+    - name: Deploy (trig argo)
       run: ls
 
 
