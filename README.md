@@ -66,6 +66,10 @@ This ensures that developers are always up to date with the latest changes and c
   <tr>
     <td align="center"><a href="https://nginx.org/"><img src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/nginx-512.png" width="75px;" height="75px;" alt="Nginx"/><br /><b>Nginx</b></a></td>
     <td align="center"><a href="https://helm.sh/"><img src="https://helm.sh/img/helm.svg" width="75px;" height="75px;" alt="Helm"/><br /><b>Helm</b></a></td>
+    <td align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-html-5-512.png" width="75px;" height="75px;" alt="HTML"/><br /><b>HTML</b></a></td>
+    <td align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://cdn1.iconfinder.com/data/icons/ionicons-fill-vol-2/512/logo-javascript-512.png" width="75px;" height="75px;" alt="JavaScript"/><br /><b>JavaScript</b></a></td>
+    <td align="center"><a href="https://www.gnu.org/software/bash/"><img src="https://cdn4.iconfinder.com/data/icons/proglyphs-computers-and-development/512/Terminal-512.png" width="75px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
+
   </tr>
 
 </table>
