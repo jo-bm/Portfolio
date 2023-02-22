@@ -52,7 +52,7 @@ This ensures that developers are always up to date with the latest changes and c
   <tr>
     <td align="center"><a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" width="75px;" height="75px;" alt="Git" /><br /><b>Git</b></a></td>
     <td align="center"><a href="https://kubernetes.io/"><img src="https://img.icons8.com/color/48/000000/kubernetes.png" width="75px;" height="75px;" alt="Kubernetes"/><br /><b>Kubernetes</b></a></td>
-    <td align="center"><a href="https://www.python.org/"><img src="https://img.icons8.com/color/48/000000/python.png" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
+    <td align="center"><a href="https://www.python.org/"><img src="https://icons8.com/icon/13441/python" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
     <td align="center"><a href="https://flask.palletsprojects.com/"><img src="https://img.icons8.com/ios-filled/50/000000/flask.png" width="75px;" height="75px;" alt="Flask"/><br /><b>Flask</b></a></td>
     <td align="center"><a href="https://www.gnu.org/software/bash/"><img src="https://img.icons8.com/ios-filled/50/000000/console.png" width="75px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
   </tr>
