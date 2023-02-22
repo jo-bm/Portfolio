@@ -67,7 +67,7 @@ jobs:
       with: 
         repository: Jo-Bm/PortfolioGOC
         ref: master
-        token: ${{ secret.GHTOKEN }}
+        token: ${{ secrets.GHTOKEN }}
     
     - name: Deploy (trig argo)
       run: ls
