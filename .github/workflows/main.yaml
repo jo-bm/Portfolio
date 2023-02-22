@@ -77,7 +77,8 @@ jobs:
         git commit -am "$TAG"
         LABUN=${{ secrets.LABUSER }}
         LABPASS=${{ secrets.LABPASS }}
-        git push https://$LABUN:LABPASS/foo105/portfolio.git master
+        UURL=https://$LABUN:LABPASS/foo105/portfolio.git 
+        git push $UURL master
 
     # report
     - name: failure
