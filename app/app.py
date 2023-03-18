@@ -123,7 +123,6 @@ def vote():
     return response
 
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
